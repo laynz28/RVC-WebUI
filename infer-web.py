@@ -778,7 +778,7 @@ def change_f0_method(f0method8):
     return {"visible": visible, "__type__": "update"}
 
 
-with gr.Blocks(title="RVC WebUI") as app:
+with gr.Blocks(theme="Hev832/EasyAndCool", title="RVC WebUI") as app:
     gr.Markdown("## RVC WebUI")
     gr.Markdown(
         value=i18n(
@@ -837,9 +837,9 @@ with gr.Blocks(title="RVC WebUI") as app:
                                     "选择音高提取算法,输入歌声可用pm提速,harvest低音好但巨慢无比,crepe效果好但吃GPU,rmvpe效果最好且微吃GPU"
                                 ),
                                 choices=(
-                                    ["pm", "harvest", "crepe", "rmvpe"]
+                                    ["pm", "crepe", "rmvpe"]
                                     if config.dml == False
-                                    else ["pm", "harvest", "rmvpe"]
+                                    else ["pm", "rmvpe"]
                                 ),
                                 value="rmvpe",
                                 interactive=True,
