@@ -144,4 +144,4 @@ with app:
             )
 
 
-app.launch()
+app.launch(debug=True, share=True)
