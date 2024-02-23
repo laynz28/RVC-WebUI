@@ -37,13 +37,13 @@ for root, dirs, files in os.walk(index_root, topdown=False):
             index_paths.append("%s/%s" % (root, name))
 
 
-app = gr.Blocks()
+app = gr.Blocks(theme='Hev832/EasyAndCool', title='RVC')
 with app:
     with gr.Tabs():
-        with gr.TabItem("在线demo"):
+        with gr.TabItem("RVC"):
             gr.Markdown(
                 value="""
-                RVC 在线demo
+                RVC Easy GUI
                 """
             )
             sid = gr.Dropdown(label=i18n("推理音色"), choices=sorted(names))
@@ -69,10 +69,10 @@ with app:
             )
             f0method0 = gr.Radio(
                 label=i18n(
-                    "选择音高提取算法,输入歌声可用pm提速,harvest低音好但巨慢无比,crepe效果好但吃GPU"
+                    "选择音高提取算法,crepe效果好但吃GPU"
                 ),
-                choices=["pm", "harvest", "crepe", "rmvpe"],
-                value="pm",
+                choices=["crepe", "rmvpe"],
+                value="rmvpe",
                 interactive=True,
             )
             filter_radius0 = gr.Slider(
@@ -158,4 +158,4 @@ with app:
             )
 
 
-app.launch()
+app.launch(debug=True, share=True)
